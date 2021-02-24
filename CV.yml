@@ -1,0 +1,60 @@
+# CV
+
+name: Foo Bar
+address:
+  street: Gatangatan 42
+  postcode: 123 45
+  city: Bystaden
+phone: 123 987 6342
+email: foo@example.com
+
+##  Utbildning
+
+education:
+  - date: aug 2020-pågående
+    degree: Fixarfrasse
+    institution: LHS
+    summary: |
+      Beräknad examen i juni 2022
+
+  - date: 2011-2018
+    degree: Bananböjeri
+    institution: Plantagen
+    summary: Vestibulum eu elit at quam convallis molestie. Integer lacinia mi eget ex eleifend, vel bibendum lacus dignissim.
+
+
+## Arbetslivserfarenhet
+
+
+experience:
+  - date: april 2020-pågående
+    position: Bossman
+    company: Example AB
+    summary: |
+      Maecenas convallis lectus ac odio dictum, et posuere arcu mollis. In et erat quis quam accumsan porttitor vel eget justo. Vivamus laoreet varius enim, at viverra justo venenatis et. Nullam risus odio, iaculis at nisl in, vehicula sodales dui. Integer quis odio nisi. Nam sem magna, rhoncus ac aliquet et, ultricies auctor est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque pharetra lacus at porttitor consequat.
+
+  - date: sep 2015-mars 2020
+    position: Minion
+    company: Example AB
+    summary: |
+      Aliquam aliquet felis rhoncus iaculis fermentum. Curabitur egestas ipsum venenatis, tempus justo sed, scelerisque dolor. Pellentesque diam augue, pretium a tempor eget, eleifend eget urna. Aliquam rutrum risus sit amet eros tristique, quis vulputate sapien sagittis. Aliquam erat volutpat. Suspendisse eget orci felis. Nulla facilisi.
+
+      Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis lacinia aliquam mauris egestas luctus. In finibus tempus ante sit amet ullamcorper. Vivamus vel maximus tortor, ut placerat ante. Ut commodo tincidunt dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce vel justo et nisi commodo tristique. Sed posuere elit non dignissim sagittis. Donec congue gravida ultrices.
+
+##  Förtroendeuppdrag och föreningsarbete
+
+commissions:
+  - date: 2017-pågående
+    position:  Ninja
+    organization: Dojo
+    summary: Vivamus vel maximus tortor, ut placerat ante.
+
+  - date: 2013-2017
+    position: Grunt
+    organization: The Horde
+    summary: Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+
+##  Språkkunskaper
+
+languages: Sed consectetur eros metus. Vestibulum eu elit at quam convallis molestie.
