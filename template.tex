@@ -1,0 +1,135 @@
+%\documentstyle[11pt]{article}
+\documentclass[a4paper,10pt,onesided]{article}
+%\usepackage[a4paper,top=23mm,bottom=23mm,outer=45mm,inner=25mm,marginparwidth=35mm,marginparsep=1em]{geometry}
+\block{ if letter is defined }
+\usepackage[a4paper,top=23mm,bottom=23mm,outer=35mm,inner=35mm,marginparwidth=30mm,marginparsep=1em]{geometry}
+\usepackage[parfill]{parskip}
+\block{ else }
+\usepackage[a4paper,top=23mm,bottom=23mm,outer=25mm,inner=45mm,marginparwidth=35mm,marginparsep=1em]{geometry}
+\block{ endif }
+
+\usepackage{polyglossia}
+\setdefaultlanguage{swedish}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage[
+	unicode=true,
+	colorlinks=true,
+	urlcolor=black,
+	pdfauthor={\var{name}},
+	pdftitle={\var{title}},
+	pdfsubject={\var{title}},
+	pdfkeywords={\var{name}}
+]{hyperref}
+\usepackage{marginnote}
+\reversemarginpar{}
+\usepackage[svgnames]{xcolor}
+%\usepackage{endnotes}
+\usepackage[absolute]{textpos}
+\TPGrid{210}{297}
+%\usepackage{wrapfig}
+
+\errorcontextlines 10000
+\pagestyle{empty}
+%\pagenumbering{plain}
+
+\raggedbottom
+
+%-------------- define commands and counters ----------------------------------
+\renewcommand{\baselinestretch}{1.}
+
+\newcommand{\ns}{\vspace{6pt}\noindent}
+\newcommand{\no}{\noindent}
+
+\newcommand{\foo}[1]{\vspace{0.7em}\noindent \textsf{\large #1} \\[0.3em]}
+
+\newcommand{\wat}[4]{%
+\marginnote{\textsf{\color{lightgray} #1}}%
+\noindent \textsf{#2}, \textsf{#3} \\[0.3em]
+#4 \vspace{1.5em}
+}
+
+% Pandoc
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Hacky Hacky
+%puts a graphic at the absolute position described by the grid
+%#1 x, #2 y, #3 width, #4 height, #5 graphic
+\newcommand\putpic[5]{%
+	\begin{textblock}{#3}(#1,#2)
+		\includegraphics[width=#3\TPHorizModule,height=#4\TPVertModule]{#5}
+	\end{textblock}
+}
+
+\usepackage{sectsty}
+\allsectionsfont{\mdseries\sffamily}
+\setcounter{secnumdepth}{0}
+
+\begin{document}
+%\sffamily
+
+\putpic{150}{23}{25}{25}{photo.png}
+%\begin{wrapfigure}{r}{8em}
+%	\includegraphics[width=8em]{photo.jpg}
+%\end{wrapfigure}
+
+\begin{flushleft}
+\textsf{\LARGE \var{name}}  \\[7pt]
+\var{address.street}  \\
+\var{address.postcode} \var{address.city}  \\
+Sverige  \\[7pt]
+\var{phone}  \\
+\href{mailto:\var{email}}{\var{email}} \\
+\end{flushleft}
+
+\vspace{0.7cm}
+
+%----
+
+\block{ if letter is defined }
+
+	\var{letter|latex}
+
+\block{ else }
+
+	%----
+	\foo{Utbildning}
+
+	\block{ for item in education }
+		\wat{\var{item.date}}{\var{item.degree}}{\var{item.institution}}{\var{item.summary|latex}}
+
+	\block{ endfor }
+
+
+	%----
+	\foo{Arbetslivserfarenhet}
+
+	\block{ for item in experience }
+		\wat{\var{item.date}}{\var{item.position}}{\var{item.company}}{\var{item.summary|latex}}
+
+	\block{ endfor }
+
+	%----
+	\foo{Förtroendeuppdrag och föreningsarbete}
+
+	\block{ for item in commissions }
+		\wat{\var{item.date}}{\var{item.position}}{\var{item.organization}}{\var{item.summary|latex}}
+
+	\block{ endfor }
+
+
+	%----
+	\foo{Språkkunskaper}
+
+	\block{ if languages is string }
+		\ns
+		\var{ languages }
+	\block{ else }
+	  \block{ for language in languages }
+	  \block{ endfor }
+	\block{ endif }
+
+\block{ endif }
+
+\end{document}
